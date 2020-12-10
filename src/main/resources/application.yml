@@ -1,0 +1,10 @@
+server:
+  port: 8585
+
+spring:
+  application:
+    name: adminService
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ipcdb_product
+    username: root

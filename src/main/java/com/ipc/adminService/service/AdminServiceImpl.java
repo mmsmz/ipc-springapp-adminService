@@ -27,7 +27,7 @@ public class AdminServiceImpl implements AdminService  {
             coursePriceEntity.setSubjectName(coursePriceDto.getSubjectName());
             coursePriceEntity.setSubjectCategory(coursePriceDto.getSubjectCategory());
             coursePriceEntity.setPrice(coursePriceDto.getPrice());
-            //adminRepository.save(coursePriceEntity);
+            adminRepository.save(coursePriceEntity);
             return CommonConstant.SUCCESSFULLY;
 
         } catch (Exception e) {
