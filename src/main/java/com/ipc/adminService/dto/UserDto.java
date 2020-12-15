@@ -2,24 +2,14 @@ package com.ipc.adminService.dto;
 
 public class UserDto {
 
-    private String userId;
     private String firstName;
     private String lastName;
     private String nicNr;
     private String email;
     private String mobile;
     private String institutebranch;
-    private String deliveryaddress;
     private String password;
     private byte loginStatus;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -67,14 +57,6 @@ public class UserDto {
 
     public void setInstitutebranch(String institutebranch) {
         this.institutebranch = institutebranch;
-    }
-
-    public String getDeliveryaddress() {
-        return deliveryaddress;
-    }
-
-    public void setDeliveryaddress(String deliveryaddress) {
-        this.deliveryaddress = deliveryaddress;
     }
 
     public String getPassword() {

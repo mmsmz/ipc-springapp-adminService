@@ -24,7 +24,7 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
-    @GetMapping("/")
+    @GetMapping("/admin")
     String admin() {
         return "<h1>Welcome!!!</h1>";
     }
@@ -78,7 +78,6 @@ public class AdminController {
             - Manage approvalStatus (apvlStatid, studpurid, approvalStatus, passcode, comments)
        > Reports (generating 7 reports)
        > Users - manger (add, view, deactivate)
-
        */
 
     /** Dashboard
