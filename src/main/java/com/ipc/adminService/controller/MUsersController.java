@@ -1,6 +1,5 @@
 package com.ipc.adminService.controller;
 
-import com.ipc.adminService.service.AdminService;
 import com.ipc.adminService.service.MStudentSerivce;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/mStudentController")
-public class MStudentController {
+@RequestMapping("/adminService")
+public class MUsersController {
 
     /**
      * The Logger
      */
-    final Logger logger = LoggerFactory.getLogger(MStudentController.class);
+    final Logger logger = LoggerFactory.getLogger(MUsersController.class);
 
     @Autowired
     MStudentSerivce mStudentSerivce;
@@ -24,6 +23,7 @@ public class MStudentController {
     String admin() {
         return "<h1>Welcome!!!</h1>";
     }
+
 
 
 }

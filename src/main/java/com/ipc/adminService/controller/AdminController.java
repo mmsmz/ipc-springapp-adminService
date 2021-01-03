@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/adminController")
+@RequestMapping("/adminService")
 public class AdminController {
     /**
      * The Logger
