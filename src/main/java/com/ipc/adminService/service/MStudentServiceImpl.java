@@ -15,10 +15,10 @@ public class MStudentServiceImpl  implements  MStudentSerivce{
     /**
      * The Logger
      */
-    final Logger logger = LoggerFactory.getLogger(PurchaseController.class);
+    final Logger logger = LoggerFactory.getLogger(MStudentServiceImpl.class);
 
 
-
+    
 
 
 
