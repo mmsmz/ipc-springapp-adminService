@@ -93,5 +93,17 @@ public class AdminController {
         responseDto.setData( adminService.addCoursePriceDetails(coursePriceDto));
         logger.info("Inside the Add Course Price Details method End");
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
+              
+    }
+   @GetMapping(value = "/getCoursePriceDetails", produces = "application/json")
+    public ResponseEntity<ResponseDto>getCoursePriceDetails() {
+       // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+
+        ResponseDto responseDto = new ResponseDto();
+        responseDto.setMessage(CommonConstant.SUCCESS);
+        responseDto.setData( adminService.getCoursePriceDetails());
+        logger.info("Inside the Add Course Price Details method End");
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+              
     }
 }

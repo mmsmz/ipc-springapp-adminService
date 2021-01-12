@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/adminService")
+@RequestMapping("/user")
 public class MUsersController {
 
     /**

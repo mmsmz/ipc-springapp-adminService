@@ -10,8 +10,8 @@ import java.time.Instant;
 public class UserEntity {
 
     @Id
-    @GenericGenerator(name = "sequence_user_id", strategy = "com.ipc.adminService.util.UserIdGenerator")
-    @GeneratedValue(generator = "sequence_user_id")
+   // @GenericGenerator(name = "sequence_user_id", strategy = "com.ipc.adminService.util.UserIdGenerator")
+   // @GeneratedValue(generator = "sequence_user_id")
     private String userId;
 
     @Column(name = "firstname")

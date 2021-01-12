@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/adminService")
+@RequestMapping("/coursePrice")
 public class MCoursePriceController {
     /**
      * The Logger
