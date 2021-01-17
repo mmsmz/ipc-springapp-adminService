@@ -15,4 +15,5 @@ public interface AdminService {
     List<CoursePriceDto> getCoursePriceDetails();
     
     UserDto addUser();
+	List<UserDto>  getStudentsDetails();
 }

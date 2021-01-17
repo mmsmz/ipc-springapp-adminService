@@ -106,4 +106,16 @@ public class AdminController {
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
               
     }
+   
+   @GetMapping(value = "/getStudentsDetails", produces = "application/json")
+   public ResponseEntity<ResponseDto>getStudentsDetails() {
+      // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+
+       ResponseDto responseDto = new ResponseDto();
+       responseDto.setMessage(CommonConstant.SUCCESS);
+       responseDto.setData( adminService.getStudentsDetails());
+       logger.info("Get Students Details End");
+       return new ResponseEntity<>(responseDto, HttpStatus.OK);
+             
+   }
 }

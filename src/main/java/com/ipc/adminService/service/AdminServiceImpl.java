@@ -3,7 +3,9 @@ package com.ipc.adminService.service;
 import com.ipc.adminService.dto.CoursePriceDto;
 import com.ipc.adminService.dto.UserDto;
 import com.ipc.adminService.entity.CoursePriceEntity;
+import com.ipc.adminService.entity.UserEntity;
 import com.ipc.adminService.repo.CoursePriceRepository;
+import com.ipc.adminService.repo.UserDetailsRepository;
 import com.ipc.adminService.util.CommonConstant;
 
 import java.util.ArrayList;
@@ -15,56 +17,77 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminServiceImpl implements AdminService  {
-    /**
-     * The Logger
-     */
-    final Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
+public class AdminServiceImpl implements AdminService {
+	/**
+	 * The Logger
+	 */
+	final Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
 
-    @Autowired
-    CoursePriceRepository coursePriceRepository;
+	@Autowired
+	CoursePriceRepository coursePriceRepository;
 
-    // To Add Course & Price Details
-    @Override
-    public String addCoursePriceDetails(CoursePriceDto coursePriceDto) {
-        try {
-            CoursePriceEntity coursePriceEntity = new CoursePriceEntity();
-            coursePriceEntity.setSubjectName(coursePriceDto.getSubjectName());
-            coursePriceEntity.setSubjectCategory(coursePriceDto.getSubjectCategory());
-            coursePriceEntity.setPrice(coursePriceDto.getPrice());
-            coursePriceRepository.save(coursePriceEntity);
-            return CommonConstant.SUCCESSFULLY;
+	@Autowired
+	UserDetailsRepository userDetailsRepository;
 
-        } catch (Exception e) {
-            logger.info(e.getMessage());
-            return e.getMessage();
-        }
-    }
-    
+	// To Add Course & Price Details
+	@Override
+	public String addCoursePriceDetails(CoursePriceDto coursePriceDto) {
+		try {
+			CoursePriceEntity coursePriceEntity = new CoursePriceEntity();
+			coursePriceEntity.setSubjectName(coursePriceDto.getSubjectName());
+			coursePriceEntity.setSubjectCategory(coursePriceDto.getSubjectCategory());
+			coursePriceEntity.setPrice(coursePriceDto.getPrice());
+			coursePriceRepository.save(coursePriceEntity);
+			return CommonConstant.SUCCESSFULLY;
 
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			return e.getMessage();
+		}
+	}
 
 	@Override
 	public UserDto addUser() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-    // To get Course & Price Details
+
+	// To get Course & Price Details
 	@Override
 	public List<CoursePriceDto> getCoursePriceDetails() {
-		List<CoursePriceDto> coursePriceList=new ArrayList<>();
-		List<CoursePriceEntity>coursePriceEntityList = coursePriceRepository.findAll();
-		for(CoursePriceEntity coursePriceEntity:coursePriceEntityList) {
+		List<CoursePriceDto> coursePriceList = new ArrayList<>();
+		List<CoursePriceEntity> coursePriceEntityList = coursePriceRepository.findAll();
+		for (CoursePriceEntity coursePriceEntity : coursePriceEntityList) {
 			CoursePriceDto coursePriceDto = new CoursePriceDto();
 			coursePriceDto.setCoursePriceId(coursePriceEntity.getCoursePriceId());
 			coursePriceDto.setSubjectName(coursePriceEntity.getSubjectName());
 			coursePriceDto.setPrice(coursePriceEntity.getPrice());
 			coursePriceDto.setSubjectCategory(coursePriceEntity.getSubjectCategory());
 			coursePriceList.add(coursePriceDto);
-			
-		}
-	
-		return coursePriceList;
+
 		}
 
+		return coursePriceList;
+	}
+
+	@Override
+	public List<UserDto> getStudentsDetails() {
+		List<UserDto> studentDetailsList = new ArrayList<>();
+		List<UserEntity> userEntityList = userDetailsRepository.findAll();
+		for (UserEntity userEntity : userEntityList) {
+			UserDto userDto = new UserDto();
+			userDto.setNicNr(userEntity.getUserId());
+			userDto.setMobile(userEntity.getMobile());
+			userDto.setLoginStatus(userEntity.getLoginstatus());
+			userDto.setFirstName(userEntity.getFirstName());
+			userDto.setLastName(userEntity.getLastName());
+			userDto.setEmail(userEntity.getEmail());
+			userDto.setInstitutebranch(userEntity.getInstituteBranch());
+			if (userEntity.getUserType().equals("student")) {
+				studentDetailsList.add(userDto);
+			}
+			
+		}
+		return studentDetailsList;
+	}
 }

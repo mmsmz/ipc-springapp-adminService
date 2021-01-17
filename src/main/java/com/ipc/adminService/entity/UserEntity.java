@@ -12,8 +12,10 @@ public class UserEntity {
     @Id
    // @GenericGenerator(name = "sequence_user_id", strategy = "com.ipc.adminService.util.UserIdGenerator")
    // @GeneratedValue(generator = "sequence_user_id")
+    @Column(name = "userid")
     private String userId;
 
+    
     @Column(name = "firstname")
     private String firstName;
 
