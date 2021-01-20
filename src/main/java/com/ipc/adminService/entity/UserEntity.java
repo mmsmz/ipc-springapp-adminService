@@ -15,13 +15,14 @@ public class UserEntity {
     @Column(name = "userid")
     private String userId;
 
-    
     @Column(name = "firstname")
     private String firstName;
 
     @Column(name = "lastname")
     private String lastName;
 
+    @Column(name = "nicnr")
+    private String nicNr;
 
     @Column(name = "email")
     private String email;
@@ -43,6 +44,14 @@ public class UserEntity {
 
     @Column(name = "loginstatus")
     private byte loginstatus;
+
+    public String getNicNr() {
+        return nicNr;
+    }
+
+    public void setNicNr(String nicNr) {
+        this.nicNr = nicNr;
+    }
 
     public String getUserId() {
         return userId;
