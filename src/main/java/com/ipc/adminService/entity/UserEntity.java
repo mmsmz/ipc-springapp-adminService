@@ -16,13 +16,14 @@ public class UserEntity {
     @Column(name = "userid")
     private String userId;
 
-    
     @Column(name = "firstname")
     private String firstName;
 
     @Column(name = "lastname")
     private String lastName;
 
+    @Column(name = "nicnr")
+    private String nicNr;
 
     @Column(name = "email")
     private String email;
@@ -56,11 +57,23 @@ public class UserEntity {
 		return nicnr;
 	}
 
+<<<<<<< HEAD
 	public void setNicnr(String nicnr) {
 		this.nicnr = nicnr;
 	}
 
 	public String getUserId() {
+=======
+    public String getNicNr() {
+        return nicNr;
+    }
+
+    public void setNicNr(String nicNr) {
+        this.nicNr = nicNr;
+    }
+
+    public String getUserId() {
+>>>>>>> 31cda286804d472e0e42a37111a0338b78e5ca5b
         return userId;
     }
 

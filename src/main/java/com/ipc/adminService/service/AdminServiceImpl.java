@@ -76,7 +76,8 @@ public class AdminServiceImpl implements AdminService {
 		List<UserEntity> userEntityList = userDetailsRepository.findAll();
 		for (UserEntity userEntity : userEntityList) {
 			UserDto userDto = new UserDto();
-			userDto.setNicNr(userEntity.getUserId());
+			userDto.setUserId(userEntity.getUserId());
+			userDto.setNicNr(userEntity.getNicNr());
 			userDto.setMobile(userEntity.getMobile());
 			userDto.setLoginStatus(userEntity.getLoginstatus());
 			userDto.setFirstName(userEntity.getFirstName());
@@ -84,6 +85,7 @@ public class AdminServiceImpl implements AdminService {
 			userDto.setEmail(userEntity.getEmail());
 			userDto.setDate(userEntity.getDate());
 			userDto.setInstitutebranch(userEntity.getInstituteBranch());
+			userDto.setDate(userEntity.getDate());
 			if (userEntity.getUserType().equals("student")) {
 				studentDetailsList.add(userDto);
 			}
