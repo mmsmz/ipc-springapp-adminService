@@ -82,6 +82,7 @@ public class AdminServiceImpl implements AdminService {
 			userDto.setFirstName(userEntity.getFirstName());
 			userDto.setLastName(userEntity.getLastName());
 			userDto.setEmail(userEntity.getEmail());
+			userDto.setDate(userEntity.getDate());
 			userDto.setInstitutebranch(userEntity.getInstituteBranch());
 			if (userEntity.getUserType().equals("student")) {
 				studentDetailsList.add(userDto);
@@ -89,5 +90,50 @@ public class AdminServiceImpl implements AdminService {
 			
 		}
 		return studentDetailsList;
+	}
+	
+	/*@Override
+	public List<UserDto> updateStudentDetails() {
+		List<UserDto> studentDetailsList = new ArrayList<>();
+		List<UserEntity> userEntityList = userDetailsRepository.findAll();
+		for (UserEntity userEntity : userEntityList) {
+			UserDto userDto = new UserDto();
+			userDto.setNicNr(userEntity.getUserId());
+			userDto.setMobile(userEntity.getMobile());
+			userDto.setLoginStatus(userEntity.getLoginstatus());
+			userDto.setFirstName(userEntity.getFirstName());
+			userDto.setLastName(userEntity.getLastName());
+			userDto.setEmail(userEntity.getEmail());
+			userDto.setInstitutebranch(userEntity.getInstituteBranch());
+			if (userEntity.getUserType().equals("student")) {
+				studentDetailsList.add(userDto);
+			}
+			
+		}
+		return studentDetailsList;
+	}*/
+	
+	@Override
+	public String addStudentsDetails(UserDto userDto) {
+		try {
+			UserEntity userEntity = new UserEntity();
+			userEntity.setEmail(userDto.getEmail());
+			userEntity.setFirstName(userDto.getFirstName());
+			userEntity.setInstituteBranch(userDto.getInstitutebranch());
+			userEntity.setLastName(userDto.getLastName());
+			userEntity.setLoginstatus(userDto.getLoginStatus());
+			userEntity.setMobile(userDto.getMobile());
+			userEntity.setUserId(userDto.getUserid());
+			userEntity.setUserType(userDto.getUsertype());
+			userEntity.setDate(userDto.getDate());
+			userEntity.setNicnr(userDto.getNicNr());
+			userEntity.setUseraccounttype(userDto.getUseraccounttype());
+			userDetailsRepository.save(userEntity);
+			return CommonConstant.SUCCESSFULLY;
+
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			return e.getMessage();
+		}
 	}
 }

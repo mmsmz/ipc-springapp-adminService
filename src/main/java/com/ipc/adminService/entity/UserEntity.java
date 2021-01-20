@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -33,7 +34,7 @@ public class UserEntity {
     private String instituteBranch;
 
     @Column(name = "date")
-    private Instant date;
+    private String date;
 
     @Column(name = "usertype")
     private String userType;
@@ -43,8 +44,23 @@ public class UserEntity {
 
     @Column(name = "loginstatus")
     private byte loginstatus;
+    
+    @Column(name = "useraccounttype")
+    private String useraccounttype;
 
-    public String getUserId() {
+    @Column(name = "nicnr")
+    private String nicnr;
+ 
+
+	public String getNicnr() {
+		return nicnr;
+	}
+
+	public void setNicnr(String nicnr) {
+		this.nicnr = nicnr;
+	}
+
+	public String getUserId() {
         return userId;
     }
 
@@ -92,11 +108,11 @@ public class UserEntity {
         this.instituteBranch = instituteBranch;
     }
 
-    public Instant getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Instant date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -123,4 +139,11 @@ public class UserEntity {
     public void setLoginstatus(byte loginstatus) {
         this.loginstatus = loginstatus;
     }
+    public String getUseraccounttype() {
+ 		return useraccounttype;
+ 	}
+
+ 	public void setUseraccounttype(String useraccounttype) {
+ 		this.useraccounttype = useraccounttype;
+ 	}
 }

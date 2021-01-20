@@ -1,5 +1,8 @@
 package com.ipc.adminService.dto;
 
+import java.time.Instant;
+import java.util.Date;
+
 public class UserDto {
 
     private String firstName;
@@ -9,7 +12,31 @@ public class UserDto {
     private String mobile;
     private String institutebranch;
     private String password;
-    private byte loginStatus;
+    private String useraccounttype;
+    private String date;
+    private String usertype;
+    private String userid;
+
+
+
+	
+    public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
+
+	private byte loginStatus;
 
     public String getFirstName() {
         return firstName;
@@ -74,4 +101,19 @@ public class UserDto {
     public void setLoginStatus(byte loginStatus) {
         this.loginStatus = loginStatus;
     }
+    public String getUseraccounttype() {
+		return useraccounttype;
+	}
+
+	public void setUseraccounttype(String useraccounttype) {
+		this.useraccounttype = useraccounttype;
+	}
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 }

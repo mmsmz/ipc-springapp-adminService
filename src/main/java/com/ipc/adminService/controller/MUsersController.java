@@ -41,6 +41,29 @@ public class MUsersController {
               
     }
     //if condition ipc elearning::useraccount
+  //update data to user db
+    @PostMapping(value = "/updateStudentsDetails", produces = "application/json")
+    public ResponseEntity<ResponseDto>updateStudentsDetails() {
+       // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
 
+        ResponseDto responseDto = new ResponseDto();
+        responseDto.setMessage(CommonConstant.SUCCESS);
+    //    responseDto.setData( mStudentSerivce.getStudentsDetails());
+        logger.info("Update Students Details End");
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+              
+    }
 
+    //update data to user db
+    @PostMapping(value = "/addStudentsDetails", produces = "application/json")
+    public ResponseEntity<ResponseDto>addStudentsDetails() {
+       // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+
+        ResponseDto responseDto = new ResponseDto();
+        responseDto.setMessage(CommonConstant.SUCCESS);
+    //    responseDto.setData( mStudentSerivce.getStudentsDetails());
+        logger.info("insert Students Details End");
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+              
+    }
 }
