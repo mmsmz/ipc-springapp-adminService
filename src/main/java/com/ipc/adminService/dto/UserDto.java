@@ -1,10 +1,8 @@
 package com.ipc.adminService.dto;
 
-import java.time.Instant;
-<<<<<<< HEAD
+
 import java.util.Date;
-=======
->>>>>>> 31cda286804d472e0e42a37111a0338b78e5ca5b
+
 
 public class UserDto {
 
@@ -15,7 +13,6 @@ public class UserDto {
     private String email;
     private String mobile;
     private String institutebranch;
-    private Instant date;
     private String password;
     private String useraccounttype;
     private String date;
@@ -51,11 +48,11 @@ public class UserDto {
         this.userId = userId;
     }
 
-    public Instant getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Instant date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -129,12 +126,6 @@ public class UserDto {
 	public void setUseraccounttype(String useraccounttype) {
 		this.useraccounttype = useraccounttype;
 	}
-	public String getDate() {
-		return date;
-	}
 
-	public void setDate(String date) {
-		this.date = date;
-	}
 
 }

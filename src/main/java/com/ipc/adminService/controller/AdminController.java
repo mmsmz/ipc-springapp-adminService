@@ -130,15 +130,15 @@ public class AdminController {
              
    }
    
- /*  @PostMapping(value = "/updateStudentsDetails", produces = "application/json")
-   public ResponseEntity<ResponseDto>updateStudentsDetails() {
+  @PostMapping(value = "/updateStudentsDetails", produces = "application/json")
+   public ResponseEntity<ResponseDto>updateStudentsDetails(@RequestBody UserDto userDto) {
       // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
 
        ResponseDto responseDto = new ResponseDto();
        responseDto.setMessage(CommonConstant.SUCCESS);
-       responseDto.setData( adminService.getStudentsDetails());
-       logger.info("Get Students Details End");
+       responseDto.setData( adminService.updateStudentsDetails(userDto));
+       logger.info("Update Students Details End");
        return new ResponseEntity<>(responseDto, HttpStatus.OK);
              
-   }*/
+   }
 }

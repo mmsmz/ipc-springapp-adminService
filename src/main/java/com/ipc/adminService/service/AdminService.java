@@ -17,5 +17,5 @@ public interface AdminService {
     UserDto addUser();
 	List<UserDto>  getStudentsDetails();
 	String addStudentsDetails(UserDto userDto);
-	//List<UserDto> updateStudentDetails();
+	String updateStudentsDetails(UserDto userDto);
 }
