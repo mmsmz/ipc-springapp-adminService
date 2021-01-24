@@ -143,4 +143,21 @@ public class AdminServiceImpl implements AdminService {
 			return e.getMessage();
 		}
 	}
+
+	@Override
+	public String updateCoursePriceDetails(CoursePriceDto coursePriceDto) {
+		try {
+			CoursePriceEntity coursePriceEntity = new CoursePriceEntity();
+			coursePriceEntity.setCoursePriceId(coursePriceDto.getCoursePriceId());
+			coursePriceEntity.setSubjectName(coursePriceDto.getSubjectName());
+			coursePriceEntity.setSubjectCategory(coursePriceDto.getSubjectCategory());
+			coursePriceEntity.setPrice(coursePriceDto.getPrice());
+			coursePriceRepository.save(coursePriceEntity);
+			return CommonConstant.SUCCESSFULLY;
+
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			return e.getMessage();
+		}
+	}
 }

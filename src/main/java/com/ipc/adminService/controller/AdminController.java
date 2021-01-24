@@ -141,4 +141,16 @@ public class AdminController {
        return new ResponseEntity<>(responseDto, HttpStatus.OK);
              
    }
+  
+  @PostMapping(value = "/updateCoursePriceDetails", produces = "application/json")
+  public ResponseEntity<ResponseDto>updateCoursePriceDetails(@RequestBody CoursePriceDto coursePriceDto) {
+	  logger.info("Inside the Update Course Price Details method Start {}", coursePriceDto.toString());
+
+      ResponseDto responseDto = new ResponseDto();
+      responseDto.setMessage(CommonConstant.SUCCESS);
+      responseDto.setData( adminService.updateCoursePriceDetails(coursePriceDto));
+      logger.info("Inside the Update Course Price Details method End");
+      return new ResponseEntity<>(responseDto, HttpStatus.OK);
+            
+  }
 }

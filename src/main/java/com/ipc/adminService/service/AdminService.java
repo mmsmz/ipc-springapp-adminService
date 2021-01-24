@@ -13,6 +13,7 @@ public interface AdminService {
     String addCoursePriceDetails(CoursePriceDto coursePriceDto);
     //To get Course & Price 
     List<CoursePriceDto> getCoursePriceDetails();
+    String updateCoursePriceDetails(CoursePriceDto coursePriceDto);
     
     UserDto addUser();
 	List<UserDto>  getStudentsDetails();
