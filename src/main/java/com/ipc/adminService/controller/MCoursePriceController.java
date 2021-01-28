@@ -2,6 +2,7 @@ package com.ipc.adminService.controller;
 
 import com.ipc.adminService.dto.CoursePriceDto;
 import com.ipc.adminService.dto.ResponseDto;
+import com.ipc.adminService.service.MCoursePriceService;
 import com.ipc.adminService.service.MStudentSerivce;
 import com.ipc.adminService.util.CommonConstant;
 import org.slf4j.Logger;
@@ -21,7 +22,7 @@ public class MCoursePriceController {
     final Logger logger = LoggerFactory.getLogger(MUsersController.class);
 
     @Autowired
-    MStudentSerivce mStudentSerivce;
+    MCoursePriceService mCoursePriceService;
 
     @GetMapping("/welcome")
     String admin() {
@@ -39,7 +40,7 @@ public class MCoursePriceController {
 
         ResponseDto responseDto = new ResponseDto();
         responseDto.setMessage(CommonConstant.SUCCESS);
-//        responseDto.setData(mStudentSerivce.addCoursePriceDetails(coursePriceDto));
+        responseDto.setData(mCoursePriceService.updateCoursePriceDetails(coursePriceDto));
         logger.info("Inside the Add Course Price Details method End");
 
         return new ResponseEntity<>(responseDto, HttpStatus.OK);

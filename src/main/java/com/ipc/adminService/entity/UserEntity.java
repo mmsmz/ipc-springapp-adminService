@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -11,8 +12,8 @@ import java.util.Date;
 public class UserEntity {
 
     @Id
-   // @GenericGenerator(name = "sequence_user_id", strategy = "com.ipc.adminService.util.UserIdGenerator")
-   // @GeneratedValue(generator = "sequence_user_id")
+    @GenericGenerator(name = "sequence_user_id", strategy = "com.ipc.adminService.util.generateid.UserIdGenerator")
+    @GeneratedValue(generator = "sequence_user_id")
     @Column(name = "userid")
     private String userId;
 
@@ -35,7 +36,7 @@ public class UserEntity {
     private String instituteBranch;
 
     @Column(name = "date")
-    private String date;
+    private LocalDate date;
 
     @Column(name = "usertype")
     private String userType;
@@ -49,23 +50,7 @@ public class UserEntity {
     @Column(name = "useraccounttype")
     private String useraccounttype;
 
-   
- 
-
-	public String getnicnr() {
-		return nicnr;
-	}
-
-
-	public void setNicnr(String nicnr) {
-		this.nicnr = nicnr;
-	}
-
-
- 
-
     public String getUserId() {
-
         return userId;
     }
 
@@ -87,6 +72,14 @@ public class UserEntity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getNicnr() {
+        return nicnr;
+    }
+
+    public void setNicnr(String nicnr) {
+        this.nicnr = nicnr;
     }
 
     public String getEmail() {
@@ -113,11 +106,11 @@ public class UserEntity {
         this.instituteBranch = instituteBranch;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -144,11 +137,12 @@ public class UserEntity {
     public void setLoginstatus(byte loginstatus) {
         this.loginstatus = loginstatus;
     }
-    public String getUseraccounttype() {
- 		return useraccounttype;
- 	}
 
- 	public void setUseraccounttype(String useraccounttype) {
- 		this.useraccounttype = useraccounttype;
- 	}
+    public String getUseraccounttype() {
+        return useraccounttype;
+    }
+
+    public void setUseraccounttype(String useraccounttype) {
+        this.useraccounttype = useraccounttype;
+    }
 }

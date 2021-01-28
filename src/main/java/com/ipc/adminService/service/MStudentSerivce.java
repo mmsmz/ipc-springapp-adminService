@@ -13,6 +13,7 @@ public interface MStudentSerivce {
    
     //To get students details 
     List<UserDto> getStudentsDetails();
+    String addStudentsDetails(UserDto userDto);
     
     UserDto addUser();
 	

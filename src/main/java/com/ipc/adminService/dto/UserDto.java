@@ -1,8 +1,12 @@
 package com.ipc.adminService.dto;
 
-
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class UserDto {
 
@@ -13,22 +17,13 @@ public class UserDto {
     private String email;
     private String mobile;
     private String institutebranch;
+
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate date;
+
     private String password;
     private String useraccounttype;
-    private String date;
     private String usertype;
-    private String userid;
-
-
-
-	
-    public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
 
 	public String getUsertype() {
 		return usertype;
@@ -46,14 +41,6 @@ public class UserDto {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getFirstName() {
@@ -127,5 +114,11 @@ public class UserDto {
 		this.useraccounttype = useraccounttype;
 	}
 
+    public LocalDate getDate() {
+        return date;
+    }
 
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

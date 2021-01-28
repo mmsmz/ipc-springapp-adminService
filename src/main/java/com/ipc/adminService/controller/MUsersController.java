@@ -1,6 +1,7 @@
 package com.ipc.adminService.controller;
 
 import com.ipc.adminService.dto.ResponseDto;
+import com.ipc.adminService.dto.UserDto;
 import com.ipc.adminService.service.MStudentSerivce;
 import com.ipc.adminService.util.CommonConstant;
 
@@ -35,7 +36,7 @@ public class MUsersController {
 
         ResponseDto responseDto = new ResponseDto();
         responseDto.setMessage(CommonConstant.SUCCESS);
-    //    responseDto.setData( mStudentSerivce.getStudentsDetails());
+        responseDto.setData(mStudentSerivce.getStudentsDetails());
         logger.info("Get Students Details End");
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
               
@@ -48,7 +49,7 @@ public class MUsersController {
 
         ResponseDto responseDto = new ResponseDto();
         responseDto.setMessage(CommonConstant.SUCCESS);
-    //    responseDto.setData( mStudentSerivce.getStudentsDetails());
+        responseDto.setData(mStudentSerivce.getStudentsDetails());
         logger.info("Update Students Details End");
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
               
@@ -56,12 +57,12 @@ public class MUsersController {
 
     //update data to user db
     @PostMapping(value = "/addStudentsDetails", produces = "application/json")
-    public ResponseEntity<ResponseDto>addStudentsDetails() {
-       // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+    public ResponseEntity<ResponseDto> addStudentsDetails(@RequestBody UserDto userDto) {
+       logger.info("Inside the Add Students Details method Start {}", userDto.toString());
 
         ResponseDto responseDto = new ResponseDto();
         responseDto.setMessage(CommonConstant.SUCCESS);
-    //    responseDto.setData( mStudentSerivce.getStudentsDetails());
+        responseDto.setData(mStudentSerivce.addStudentsDetails(userDto));
         logger.info("insert Students Details End");
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
               

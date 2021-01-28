@@ -77,7 +77,7 @@ public class AdminServiceImpl implements AdminService {
 		for (UserEntity userEntity : userEntityList) {
 			UserDto userDto = new UserDto();
 			userDto.setUserId(userEntity.getUserId());
-			userDto.setNicNr(userEntity.getnicnr());
+			userDto.setNicNr(userEntity.getNicnr());
 			userDto.setMobile(userEntity.getMobile());
 			userDto.setLoginStatus(userEntity.getLoginstatus());
 			userDto.setFirstName(userEntity.getFirstName());
@@ -106,7 +106,7 @@ public class AdminServiceImpl implements AdminService {
 			userEntity.setLastName(userDto.getLastName());
 			userEntity.setLoginstatus(userDto.getLoginStatus());
 			userEntity.setMobile(userDto.getMobile());
-			userEntity.setUserId(userDto.getUserid());
+			userEntity.setUserId(userDto.getUserId());
 			userEntity.setUserType(userDto.getUsertype());
 			userEntity.setDate(userDto.getDate());
 			userEntity.setNicnr(userDto.getNicNr());
@@ -130,7 +130,7 @@ public class AdminServiceImpl implements AdminService {
 			userEntity.setLastName(userDto.getLastName());
 			userEntity.setLoginstatus(userDto.getLoginStatus());
 			userEntity.setMobile(userDto.getMobile());
-			userEntity.setUserId(userDto.getUserid());
+			userEntity.setUserId(userDto.getUserId());
 			userEntity.setUserType(userDto.getUsertype());
 			userEntity.setDate(userDto.getDate());
 			userEntity.setNicnr(userDto.getNicNr());
