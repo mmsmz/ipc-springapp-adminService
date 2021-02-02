@@ -1,6 +1,7 @@
 package com.ipc.adminService.controller;
 
 import com.ipc.adminService.dto.CoursePriceDto;
+import com.ipc.adminService.dto.CourseScheduleDto;
 import com.ipc.adminService.dto.ResponseDto;
 import com.ipc.adminService.dto.UserDto;
 import com.ipc.adminService.service.AdminService;
@@ -16,54 +17,54 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping("/adminService")
 public class AdminController {
-    /**
-     * The Logger
-     */
-    final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	/**
+	 * The Logger
+	 */
+	final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-    @Autowired
-    AdminService adminService;
+	@Autowired
+	AdminService adminService;
 
-    @GetMapping("/admin")
-    String admin() {
-        return "<h1>Welcome!!!</h1>";
-    }
+	@GetMapping("/admin")
+	String admin() {
+		return "<h1>Welcome!!!</h1>";
+	}
 
-    // create users - manager
-    @PostMapping(value = "/addUser", produces = "application/json")
-    public ResponseEntity<ResponseDto> addUser(@RequestBody UserDto userDto) {
-        return null;
-    }
+	// create users - manager
+	@PostMapping(value = "/addUser", produces = "application/json")
+	public ResponseEntity<ResponseDto> addUser(@RequestBody UserDto userDto) {
+		return null;
+	}
 
-    // deactivate user
-    @PostMapping(value = "/deActivateUser", produces = "application/json")
-    public ResponseEntity<ResponseDto> deActivateUser(@RequestBody UserDto userDto) {
-        return null;
-    }
+	// deactivate user
+	@PostMapping(value = "/deActivateUser", produces = "application/json")
+	public ResponseEntity<ResponseDto> deActivateUser(@RequestBody UserDto userDto) {
+		return null;
+	}
 
-    // update user details
-    @PostMapping(value = "/updateUser", produces = "application/json")
-    public ResponseEntity<ResponseDto> updateUser(@RequestBody UserDto userDto) {
-        return null;
-    }
+	// update user details
+	@PostMapping(value = "/updateUser", produces = "application/json")
+	public ResponseEntity<ResponseDto> updateUser(@RequestBody UserDto userDto) {
+		return null;
+	}
 
-    // NEED TO implement the following APIs
+	// NEED TO implement the following APIs
 
-    /* Home Page Api's
-    *  - show Banners and smaller Banners and logos
+	/* Home Page Api's
+	 *  - show Banners and smaller Banners and logos
        - show optional - updating modules (Not Necessary)
        - show getcoursePrice&Scheduling
-    *  -
-    * */
+	 *  -
+	 * */
 
-      /* student Profile Page
+	/* student Profile Page
         - student details (displaying the name)
         - updating the balance details if the student signs in from google account
         - history of purchase details
         - notifications alerts
-      */
+	 */
 
-       /* Dashboard
+	/* Dashboard
        > Student
             - manage users [Student] (view, search, add, deactivate)
        > Course Details >>  (manage subjectsType, manage subjectCategory, manage subjectSchedule)
@@ -78,79 +79,92 @@ public class AdminController {
             - Manage approvalStatus (apvlStatid, studpurid, approvalStatus, passcode, comments)
        > Reports (generating 7 reports)
        > Users - manger (add, view, deactivate)
-       */
+	 */
 
-    /** Dashboard
-     * Course Details >> To Add Course & Price Details
-     * add data
-     */
-    @PostMapping(value = "/addCoursePriceDetails", produces = "application/json")
-    public ResponseEntity<ResponseDto> addCoursePriceDetails(@RequestBody CoursePriceDto coursePriceDto) {
-        logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+	/** Dashboard
+	 * Course Details >> To Add Course & Price Details
+	 * add data
+	 */
+	@PostMapping(value = "/addCoursePriceDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto> addCoursePriceDetails(@RequestBody CoursePriceDto coursePriceDto) {
+		logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
 
-        ResponseDto responseDto = new ResponseDto();
-        responseDto.setMessage(CommonConstant.SUCCESS);
-        responseDto.setData( adminService.addCoursePriceDetails(coursePriceDto));
-        logger.info("Inside the Add Course Price Details method End");
-        return new ResponseEntity<>(responseDto, HttpStatus.OK);
-              
-    }
-   @GetMapping(value = "/getCoursePriceDetails", produces = "application/json")
-    public ResponseEntity<ResponseDto>getCoursePriceDetails() {
-       // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.addCoursePriceDetails(coursePriceDto));
+		logger.info("Inside the Add Course Price Details method End");
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
 
-        ResponseDto responseDto = new ResponseDto();
-        responseDto.setMessage(CommonConstant.SUCCESS);
-        responseDto.setData( adminService.getCoursePriceDetails());
-        logger.info("Inside the Add Course Price Details method End");
-        return new ResponseEntity<>(responseDto, HttpStatus.OK);
-              
-    }
-   
-   @GetMapping(value = "/getStudentsDetails", produces = "application/json")
-   public ResponseEntity<ResponseDto>getStudentsDetails() {
-      // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+	}
+	@GetMapping(value = "/getCoursePriceDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto>getCoursePriceDetails() {
+		// logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
 
-       ResponseDto responseDto = new ResponseDto();
-       responseDto.setMessage(CommonConstant.SUCCESS);
-       responseDto.setData( adminService.getStudentsDetails());
-       logger.info("Get Students Details End");
-       return new ResponseEntity<>(responseDto, HttpStatus.OK);
-             
-   }
-   @PostMapping(value = "/addStudentsDetails", produces = "application/json")
-   public ResponseEntity<ResponseDto> addStudentsDetails(@RequestBody UserDto userDto) {
-       logger.info("Inside the Add Students Details method Start {}", userDto.toString());
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.getCoursePriceDetails());
+		logger.info("Inside the Add Course Price Details method End");
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
 
-       ResponseDto responseDto = new ResponseDto();
-       responseDto.setMessage(CommonConstant.SUCCESS);
-       responseDto.setData( adminService.addStudentsDetails(userDto));
-       logger.info("Inside the Add Students Details method End");
-       return new ResponseEntity<>(responseDto, HttpStatus.OK);
-             
-   }
-   
-  @PostMapping(value = "/updateStudentsDetails", produces = "application/json")
-   public ResponseEntity<ResponseDto>updateStudentsDetails(@RequestBody UserDto userDto) {
-      // logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+	}
 
-       ResponseDto responseDto = new ResponseDto();
-       responseDto.setMessage(CommonConstant.SUCCESS);
-       responseDto.setData( adminService.updateStudentsDetails(userDto));
-       logger.info("Update Students Details End");
-       return new ResponseEntity<>(responseDto, HttpStatus.OK);
-             
-   }
-  
-  @PostMapping(value = "/updateCoursePriceDetails", produces = "application/json")
-  public ResponseEntity<ResponseDto>updateCoursePriceDetails(@RequestBody CoursePriceDto coursePriceDto) {
-	  logger.info("Inside the Update Course Price Details method Start {}", coursePriceDto.toString());
+	@GetMapping(value = "/getStudentsDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto>getStudentsDetails() {
+		// logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
 
-      ResponseDto responseDto = new ResponseDto();
-      responseDto.setMessage(CommonConstant.SUCCESS);
-      responseDto.setData( adminService.updateCoursePriceDetails(coursePriceDto));
-      logger.info("Inside the Update Course Price Details method End");
-      return new ResponseEntity<>(responseDto, HttpStatus.OK);
-            
-  }
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.getStudentsDetails());
+		logger.info("Get Students Details End");
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+	}
+	@PostMapping(value = "/addStudentsDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto> addStudentsDetails(@RequestBody UserDto userDto) {
+		logger.info("Inside the Add Students Details method Start {}", userDto.toString());
+
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.addStudentsDetails(userDto));
+		logger.info("Inside the Add Students Details method End");
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+	}
+
+	@PostMapping(value = "/updateStudentsDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto>updateStudentsDetails(@RequestBody UserDto userDto) {
+		// logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.updateStudentsDetails(userDto));
+		logger.info("Update Students Details End");
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+	}
+
+	@PostMapping(value = "/updateCoursePriceDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto>updateCoursePriceDetails(@RequestBody CoursePriceDto coursePriceDto) {
+		logger.info("Inside the Update Course Price Details method Start {}", coursePriceDto.toString());
+
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.updateCoursePriceDetails(coursePriceDto));
+		logger.info("Inside the Update Course Price Details method End");
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+	}
+
+	@PostMapping(value = "/updateCourseScheduleDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto>updateCourseScheduleDetails(@RequestBody CourseScheduleDto courseScheduleDto) {
+		  logger.info("Inside the update Course Schedule Details method Start {}", courseScheduleDto.toString());
+
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+        responseDto.setData(adminService.updateCourseScheduleDetails(courseScheduleDto));
+		logger.info("Inside the update Course Schedule Details method End");
+
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+	}
 }

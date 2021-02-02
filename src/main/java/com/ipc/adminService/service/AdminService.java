@@ -1,6 +1,7 @@
 package com.ipc.adminService.service;
 
 import com.ipc.adminService.dto.CoursePriceDto;
+import com.ipc.adminService.dto.CourseScheduleDto;
 import com.ipc.adminService.dto.UserDto;
 
 import java.util.List;
@@ -19,4 +20,5 @@ public interface AdminService {
 	List<UserDto>  getStudentsDetails();
 	String addStudentsDetails(UserDto userDto);
 	String updateStudentsDetails(UserDto userDto);
+	String updateCourseScheduleDetails(CourseScheduleDto courseScheduleDto);
 }
