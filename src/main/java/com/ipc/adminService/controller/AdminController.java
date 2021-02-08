@@ -2,6 +2,7 @@ package com.ipc.adminService.controller;
 
 import com.ipc.adminService.dto.CoursePriceDto;
 import com.ipc.adminService.dto.CourseScheduleDto;
+import com.ipc.adminService.dto.ImageDto;
 import com.ipc.adminService.dto.ResponseDto;
 import com.ipc.adminService.dto.UserDto;
 import com.ipc.adminService.service.AdminService;
@@ -164,6 +165,18 @@ public class AdminController {
         responseDto.setData(adminService.updateCourseScheduleDetails(courseScheduleDto));
 		logger.info("Inside the update Course Schedule Details method End");
 
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+	}
+	
+	@PostMapping(value = "/addImageDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto> addImageDetails(@RequestBody ImageDto imageDto) {
+		logger.info("Inside the Add Image Details method Start {}", imageDto.toString());
+
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.addImageDetails(imageDto));
+		logger.info("Inside the Image Details method End");
 		return new ResponseEntity<>(responseDto, HttpStatus.OK);
 
 	}

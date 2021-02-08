@@ -2,6 +2,7 @@ package com.ipc.adminService.service;
 
 import com.ipc.adminService.dto.CoursePriceDto;
 import com.ipc.adminService.dto.CourseScheduleDto;
+import com.ipc.adminService.dto.ImageDto;
 import com.ipc.adminService.dto.UserDto;
 
 import java.util.List;
@@ -21,4 +22,5 @@ public interface AdminService {
 	String addStudentsDetails(UserDto userDto);
 	String updateStudentsDetails(UserDto userDto);
 	String updateCourseScheduleDetails(CourseScheduleDto courseScheduleDto);
+	String addImageDetails(ImageDto imageDto);
 }
