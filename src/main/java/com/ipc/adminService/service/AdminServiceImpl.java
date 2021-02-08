@@ -2,12 +2,15 @@ package com.ipc.adminService.service;
 
 import com.ipc.adminService.dto.CoursePriceDto;
 import com.ipc.adminService.dto.CourseScheduleDto;
+import com.ipc.adminService.dto.ImageDto;
 import com.ipc.adminService.dto.UserDto;
 import com.ipc.adminService.entity.CoursePriceEntity;
 import com.ipc.adminService.entity.CourseScheduleEntity;
+import com.ipc.adminService.entity.ImageEntity;
 import com.ipc.adminService.entity.UserEntity;
 import com.ipc.adminService.repo.CoursePriceRepository;
 import com.ipc.adminService.repo.CourseScheduleRepository;
+import com.ipc.adminService.repo.ImageRepository;
 import com.ipc.adminService.repo.UserDetailsRepository;
 import com.ipc.adminService.util.CommonConstant;
 
@@ -32,6 +35,8 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	UserDetailsRepository userDetailsRepository;
 	
+	@Autowired
+	ImageRepository imageRepository;
 
 	@Autowired
 	CourseScheduleRepository courseScheduleRepository;
@@ -180,6 +185,23 @@ public class AdminServiceImpl implements AdminService {
 			courseScheduleEntity.setMeetingid(courseScheduleDto.getMeetingid());
 			courseScheduleEntity.setLecturername(courseScheduleDto.getLecturername());
 			courseScheduleRepository.save(courseScheduleEntity);
+			return CommonConstant.SUCCESSFULLY;
+
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			return e.getMessage();
+		}
+	}
+
+	@Override
+	public String addImageDetails(ImageDto imageDto) {
+		try {
+			ImageEntity imageEntity= new ImageEntity();
+			imageEntity.setImgpathid(imageDto.getImgpathid());
+			imageEntity.setImagedirectory(imageDto.getImagedirectory());
+			imageEntity.setImagetype(imageDto.getImagetype());
+			
+			imageRepository.save(imageEntity);
 			return CommonConstant.SUCCESSFULLY;
 
 		} catch (Exception e) {
