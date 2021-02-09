@@ -23,4 +23,5 @@ public interface AdminService {
 	String updateStudentsDetails(UserDto userDto);
 	String updateCourseScheduleDetails(CourseScheduleDto courseScheduleDto);
 	String addImageDetails(ImageDto imageDto);
+	List<CourseScheduleDto> getCourseScheduleDetails();
 }

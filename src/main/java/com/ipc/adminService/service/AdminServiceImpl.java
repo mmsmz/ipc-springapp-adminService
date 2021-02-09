@@ -34,7 +34,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	UserDetailsRepository userDetailsRepository;
-	
+
 	@Autowired
 	ImageRepository imageRepository;
 
@@ -101,13 +101,13 @@ public class AdminServiceImpl implements AdminService {
 			if (userEntity.getUserType().equals("student")) {
 				studentDetailsList.add(userDto);
 			}
-			
+
 		}
 		return studentDetailsList;
 	}
-	
-	
-	
+
+
+
 	@Override
 	public String addStudentsDetails(UserDto userDto) {
 		try {
@@ -200,7 +200,7 @@ public class AdminServiceImpl implements AdminService {
 			imageEntity.setImgpathid(imageDto.getImgpathid());
 			imageEntity.setImagedirectory(imageDto.getImagedirectory());
 			imageEntity.setImagetype(imageDto.getImagetype());
-			
+
 			imageRepository.save(imageEntity);
 			return CommonConstant.SUCCESSFULLY;
 
@@ -208,5 +208,24 @@ public class AdminServiceImpl implements AdminService {
 			logger.info(e.getMessage());
 			return e.getMessage();
 		}
+	}
+
+	@Override
+	public List<CourseScheduleDto> getCourseScheduleDetails() {
+		List<CourseScheduleDto> courseScheduleDetailsList = new ArrayList<>();
+		List<CourseScheduleEntity> courseScheduleEntityList = courseScheduleRepository.findAll();
+		for (CourseScheduleEntity courseScheduleEntity : courseScheduleEntityList) {
+			CourseScheduleDto courseScheduleDto = new CourseScheduleDto();
+			courseScheduleDto.setCourseScheduleId(courseScheduleEntity.getCourseScheduleId());
+			courseScheduleDto.setCoursePriceId(courseScheduleEntity.getCoursePriceId());
+			courseScheduleDto.setDay(courseScheduleEntity.getDay());
+			courseScheduleDto.setTime(courseScheduleEntity.getTime());
+			courseScheduleDto.setPasscode(courseScheduleEntity.getPasscode());
+			courseScheduleDto.setMeetingid(courseScheduleEntity.getMeetingid());
+			courseScheduleDto.setLecturername(courseScheduleEntity.getLecturername());
+			courseScheduleDetailsList.add(courseScheduleDto);
+
+		}
+		return courseScheduleDetailsList;
 	}
 }

@@ -120,6 +120,7 @@ public class AdminController {
 		return new ResponseEntity<>(responseDto, HttpStatus.OK);
 
 	}
+	
 	@PostMapping(value = "/addStudentsDetails", produces = "application/json")
 	public ResponseEntity<ResponseDto> addStudentsDetails(@RequestBody UserDto userDto) {
 		logger.info("Inside the Add Students Details method Start {}", userDto.toString());
@@ -165,6 +166,18 @@ public class AdminController {
         responseDto.setData(adminService.updateCourseScheduleDetails(courseScheduleDto));
 		logger.info("Inside the update Course Schedule Details method End");
 
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+
+	}
+	
+	@GetMapping(value = "/getCourseScheduleDetails", produces = "application/json")
+	public ResponseEntity<ResponseDto>getCourseScheduleDetails() {
+		// logger.info("Inside the Add Course Price Details method Start {}", coursePriceDto.toString());
+
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(CommonConstant.SUCCESS);
+		responseDto.setData( adminService.getCourseScheduleDetails());
+		logger.info("Get CourseSchedule Details End");
 		return new ResponseEntity<>(responseDto, HttpStatus.OK);
 
 	}
